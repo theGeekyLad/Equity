@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "193265110843",
+    "firebase_url": "https://equity-f4b39.firebaseio.com",
+    "project_id": "equity-f4b39",
+    "storage_bucket": "equity-f4b39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193265110843:android:94fc098320414e92",
+        "android_client_info": {
+          "package_name": "com.theinfiniteloop.thegeekylad.equity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193265110843-9s25c28qc3g2hgteublptqchdt79340g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theinfiniteloop.thegeekylad.equity",
+            "certificate_hash": "845b8cb2d2c4a3b907895191550e3684da90eea0"
+          }
+        },
+        {
+          "client_id": "193265110843-dlm0f2198br3kmhuvtcnj7qi7daiqmrp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrHjyfcDdnRrgDutMyU27YECn8V657P-I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193265110843-dlm0f2198br3kmhuvtcnj7qi7daiqmrp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

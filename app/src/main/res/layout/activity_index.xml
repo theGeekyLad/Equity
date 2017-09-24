@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.theinfiniteloop.thegeekylad.equity.IndexActivity">
+
+    <Button
+        android:drawableLeft="@drawable/ic_center_focus_strong_white_24dp"
+        android:id="@+id/scan"
+        android:textColor="#FAFAFA"
+        android:backgroundTint="#9C27B0"
+        android:text="scan"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:drawableLeft="@drawable/ic_navigation_white_24dp"
+        android:id="@+id/navigate"
+        android:layout_marginTop="20dp"
+        android:textColor="#FAFAFA"
+        android:backgroundTint="#9C27B0"
+        android:text="navigate"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:drawableLeft="@drawable/ic_business_center_white_24dp"
+        android:id="@+id/book"
+        android:layout_marginTop="20dp"
+        android:textColor="#FAFAFA"
+        android:backgroundTint="#9C27B0"
+        android:text="book"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:drawableLeft="@drawable/ic_today_white_24dp"
+        android:id="@+id/schedule"
+        android:layout_marginTop="20dp"
+        android:textColor="#FAFAFA"
+        android:backgroundTint="#9C27B0"
+        android:text="schedule"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:drawableLeft="@drawable/ic_assignment_returned_white_24dp"
+        android:id="@+id/liabilities"
+        android:layout_marginTop="20dp"
+        android:textColor="#FAFAFA"
+        android:backgroundTint="#9C27B0"
+        android:text="liabilities"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
