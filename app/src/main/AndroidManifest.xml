@@ -31,7 +31,7 @@
             android:exported="true" />
 
         <activity android:name=".ScheduleActivity" />
-        <activity android:name=".LiabilitiesActivity"></activity>
+        <activity android:name=".LiabilitiesActivity" />
     </application>
 
 </manifest>

@@ -26,6 +26,8 @@ public class IndexActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
 
+        // init
+        //hideBars();
 
         //animating
         YoYo.with(Techniques.BounceIn).duration(200).playOn(findViewById(R.id.scan));
@@ -88,4 +90,28 @@ public class IndexActivity extends AppCompatActivity {
             new File(getFilesDir(), "url.txt").delete();
         }
     }
+
+    /*
+    private void hideBars() {
+        final View systemView = getWindow().getDecorView();
+        systemView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        );
+        systemView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int i) {
+                systemView.setSystemUiVisibility(
+                        View.SYSTEM_UI_FLAG_FULLSCREEN |
+                                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
+                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                );
+            }
+        });
+    }
+    */
 }

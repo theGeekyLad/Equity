@@ -9,29 +9,17 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_marginTop="120dp"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:src="@drawable/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="180dp"
+        android:layout_height="180dp" />
 
-    <TextView
-        android:layout_marginTop="300dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Equity" />
-
-    <Button
-        android:textColor="#FAFAFA"
-        android:backgroundTint="#9C27B0"
-        android:id="@+id/go"
-        android:text="Go"
+    <ImageView
         android:layout_marginBottom="100dp"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/text"
+        android:layout_width="200dp"
+        android:layout_height="70dp" />
 
 </RelativeLayout>

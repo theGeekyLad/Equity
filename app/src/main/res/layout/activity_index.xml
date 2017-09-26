@@ -8,53 +8,120 @@
     android:layout_height="match_parent"
     tools:context="com.theinfiniteloop.thegeekylad.equity.IndexActivity">
 
-    <Button
-        android:drawableLeft="@drawable/ic_center_focus_strong_white_24dp"
-        android:id="@+id/scan"
-        android:textColor="#FAFAFA"
-        android:backgroundTint="#9C27B0"
-        android:text="scan"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/scan"
+                        android:id="@+id/scan"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp" />
+                    <TextView
+                        android:text="Scan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/navigate"
+                        android:id="@+id/navigate"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp" />
+                    <TextView
+                        android:text="Navigate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
 
-    <Button
-        android:drawableLeft="@drawable/ic_navigation_white_24dp"
-        android:id="@+id/navigate"
-        android:layout_marginTop="20dp"
-        android:textColor="#FAFAFA"
-        android:backgroundTint="#9C27B0"
-        android:text="navigate"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/book"
+                        android:id="@+id/book"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp" />
+                    <TextView
+                        android:text="Book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/schedule"
+                        android:id="@+id/schedule"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp" />
+                    <TextView
+                        android:text="Schedule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
 
-    <Button
-        android:drawableLeft="@drawable/ic_business_center_white_24dp"
-        android:id="@+id/book"
-        android:layout_marginTop="20dp"
-        android:textColor="#FAFAFA"
-        android:backgroundTint="#9C27B0"
-        android:text="book"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:drawableLeft="@drawable/ic_today_white_24dp"
-        android:id="@+id/schedule"
-        android:layout_marginTop="20dp"
-        android:textColor="#FAFAFA"
-        android:backgroundTint="#9C27B0"
-        android:text="schedule"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:drawableLeft="@drawable/ic_assignment_returned_white_24dp"
-        android:id="@+id/liabilities"
-        android:layout_marginTop="20dp"
-        android:textColor="#FAFAFA"
-        android:backgroundTint="#9C27B0"
-        android:text="liabilities"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/liabilities"
+                        android:id="@+id/liabilities"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp" />
+                    <TextView
+                        android:text="Liabilities"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

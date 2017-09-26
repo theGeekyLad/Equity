@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -35,27 +36,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //init
+        // init
+        //hideBars();
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
+        // permissions
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
 
-        (findViewById(R.id.go)).setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
-
+            public void run() {
+                // auth + IndexActivity
                 if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-
                     startService(new Intent(MainActivity.this, NotifierService.class));
-
                     startActivity(new Intent(getApplicationContext(), IndexActivity.class));
-
+                    finish();
                 }
-
                 else {
                     final View loginForm = getLayoutInflater().inflate(R.layout.login_form,null);
                     new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Login")
                             .setView(loginForm)
                             .setPositiveButton("Login", new DialogInterface.OnClickListener() {
                                 @Override
@@ -66,9 +67,10 @@ public class MainActivity extends AppCompatActivity {
                                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                                 @Override
                                                 public void onSuccess(AuthResult authResult) {
-
                                                     Toast.makeText(MainActivity.this, "Welcome, "+t, Toast.LENGTH_SHORT).show();
-
+                                                    startService(new Intent(MainActivity.this, NotifierService.class));
+                                                    startActivity(new Intent(getApplicationContext(), IndexActivity.class));
+                                                    finish();
                                                 }
                                             });
                                 }
@@ -76,17 +78,45 @@ public class MainActivity extends AppCompatActivity {
                             .create()
                             .show();
                 }
-
             }
-        });
+        }, 1200);
+
+
+
+
+
+
 
     }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
-        //animate
-        YoYo.with(Techniques.Tada).duration(1000).playOn(findViewById(R.id.logo));
+        YoYo.with(Techniques.Tada).duration(1200).playOn(findViewById(R.id.logo));
     }
+
+    /*
+    private void hideBars() {
+        final View systemView = getWindow().getDecorView();
+        systemView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN |
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        );
+        systemView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int i) {
+                systemView.setSystemUiVisibility(
+                        View.SYSTEM_UI_FLAG_FULLSCREEN |
+                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                );
+            }
+        });
+    }
+    */
 
 }

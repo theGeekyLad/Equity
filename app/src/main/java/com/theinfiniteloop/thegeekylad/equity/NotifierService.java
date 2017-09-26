@@ -18,8 +18,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.NoSuchElementException;
-
 public class NotifierService extends Service {
     public NotifierService() {
     }
@@ -35,7 +33,7 @@ public class NotifierService extends Service {
         PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
 
         Notification notification = new Notification.Builder(this)
-                .setContentTitle((context)?"Meeting":"Liability")
+                .setContentTitle((context)?"Alert! You have pending meetings":"Alert! You have pending liabilities")
                 .setSmallIcon(R.drawable.logo)
                 .setContentIntent(pIntent)
                 .setSound(Uri.parse(RingtoneManager.EXTRA_RINGTONE_DEFAULT_URI))
@@ -43,7 +41,7 @@ public class NotifierService extends Service {
         notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.notify(0, notification);
+        notificationManager.notify((context)?121:169, notification);
 
     }
 
@@ -52,41 +50,13 @@ public class NotifierService extends Service {
 
         FirebaseDatabase.getInstance().getReference("employee")
                 .child(formatEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
-                .child("meeting")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        try {
-
+                        if (dataSnapshot.child("meeting").exists())
                             ping(true);
-
-                        } catch (NoSuchElementException nsee) {
-                            Toast.makeText(NotifierService.this, "You have no meetings lined up!", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-
-        FirebaseDatabase.getInstance().getReference("employee")
-                .child(formatEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
-                .child("liability")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-
-                        try {
-
+                        if (dataSnapshot.child("liability").exists())
                             ping(false);
-
-                        } catch (NoSuchElementException nsee) {
-                        }
-
                     }
 
                     @Override

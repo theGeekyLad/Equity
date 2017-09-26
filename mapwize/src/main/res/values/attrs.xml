@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MWZMapView">
+
+        <!-- Api and Access -->
+        <attr name="apikey" format="string"/>
+        <attr name="accesskey" format="string"/>
+
+        <!-- Language -->
+        <attr name="language" format="string"/>
+
+        <!-- Controller display -->
+        <attr name="showUserPositionControl" format="boolean"/>
+        <attr name="displayFloorControl" format="boolean"/>
+        <attr name="mainColor" format="string"/>
+
+        <!-- Location -->
+        <attr name="isLocationEnabled" format="boolean"/>
+        <attr name="isBeaconsEnabled" format="boolean"/>
+
+        <!-- Coordinates -->
+        <attr name="center_latitude" format="float"/>
+        <attr name="center_longitude" format="float"/>
+        <attr name="zoom" format="integer"/>
+        <attr name="floor" format="integer"/>
+        <attr name="minZoom" format="integer"/>
+
+        <!-- Bounds -->
+        <attr name="maxBounds_latitudeMin" format="float"/>
+        <attr name="maxBounds_latitudeMax" format="float"/>
+        <attr name="maxBounds_longitudeMin" format="float"/>
+        <attr name="maxBounds_longitudeMax" format="float"/>
+        <attr name="bounds_latitudeMin" format="float"/>
+        <attr name="bounds_latitudeMax" format="float"/>
+        <attr name="bounds_longitudeMin" format="float"/>
+        <attr name="bounds_longitudeMax" format="float"/>
+
+        <!-- Custom marker -->
+        <attr name="iconUrl" format="string"/>
+        <attr name="x_iconSize" format="integer"/>
+        <attr name="y_iconSize" format="integer"/>
+        <attr name="x_iconAnchor" format="integer"/>
+        <attr name="y_iconAnchor" format="integer"/>
+
+    </declare-styleable>
+</resources>

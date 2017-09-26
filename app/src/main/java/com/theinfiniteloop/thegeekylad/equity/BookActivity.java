@@ -45,7 +45,7 @@ public class BookActivity extends AppCompatActivity implements MWZMapViewListene
 
     DatabaseReference databaseReference;
 
-    String s, sName;
+    String s, sName, sPost;
 
     /*
     LinearLayout placeLayout;
@@ -93,6 +93,21 @@ public class BookActivity extends AppCompatActivity implements MWZMapViewListene
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '.')
                 str += "^";
+            else
+                str += s.charAt(i);
+        }
+
+        return str;
+
+    }
+
+    public String unFormatEmail(String s) {
+
+        String str = "";
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '^')
+                str += ".";
             else
                 str += s.charAt(i);
         }
@@ -202,9 +217,7 @@ public class BookActivity extends AppCompatActivity implements MWZMapViewListene
                                                             @Override
                                                             public void onClick(DialogInterface dialogInterface, int j) {
 
-                                                                if (sName==null)
-                                                                    databaseReference.child("booking").push().setValue(s);
-                                                                else
+                                                                if (sName != null)
                                                                     databaseReference.child("employee")
                                                                             .child(formatEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail()))
                                                                             .child("schedule")
@@ -212,23 +225,31 @@ public class BookActivity extends AppCompatActivity implements MWZMapViewListene
                                                                             .setValue(s);
 
                                                                 DataSnapshot dEmp = iterator.next();
+                                                                sPost = "";
                                                                 for (int i=0; i<employeeBars.length; i++) {
-                                                                    if (((CheckBox) employeeBars[i].findViewById(R.id.box)).isChecked())
+                                                                    if (((CheckBox) employeeBars[i].findViewById(R.id.box)).isChecked()) {
+                                                                        sPost += "#" + unFormatEmail(dEmp.getKey()) + ",";
                                                                         databaseReference
                                                                                 .child("employee")
                                                                                 .child(dEmp.getKey())
-                                                                                .child((sName!=null)?"liability":"meeting")
+                                                                                .child((sName != null) ? "liability" : "meeting")
                                                                                 .push()
-                                                                                .setValue((sName!=null)?s+"#"+dataSnapshot
+                                                                                .setValue((sName != null) ? s + "#" + dataSnapshot
                                                                                         .child("employee")
                                                                                         .child(new RW().formatEmail(FirebaseAuth
                                                                                                 .getInstance()
                                                                                                 .getCurrentUser()
                                                                                                 .getEmail()))
                                                                                         .child("name")
-                                                                                        .getValue(String.class):s);
-                                                                    try { dEmp = iterator.next(); } catch (ArrayIndexOutOfBoundsException aioobe) {}
+                                                                                        .getValue(String.class) : s);
+                                                                    }
+                                                                    try {
+                                                                        dEmp = iterator.next();
+                                                                    } catch (ArrayIndexOutOfBoundsException aioobe) {
+                                                                    }
                                                                 }
+                                                                if (sName==null)
+                                                                    databaseReference.child("booking").push().setValue(s+sPost.substring(0, sPost.length()-1));
 
                                                                 Toast.makeText(BookActivity.this, (sName!=null)?"Schedule created!":"Booking successful!", Toast.LENGTH_SHORT).show();
 
